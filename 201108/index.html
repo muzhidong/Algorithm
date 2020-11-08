@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+					content="width=device-width, initial-scale=1.0">
+		<title>单链表操作</title>
+		<script src="./single-link-list.js"></script>
+		<!-- 单链表 -->
+		<script>
+			var linkList = createLinkList(1, 2, 3, 4, 45, 56);
+			console.log(linkList.len);
+			console.log(linkList.printLinkList());
+
+			linkList.insertNode(100, 10);
+			console.log(linkList.printLinkList());
+
+			linkList.insertNode(50, 3);
+			console.log(linkList.printLinkList());
+
+			linkList.insertNode(10);
+			console.log(linkList.printLinkList());
+
+			linkList.removeNode(2);
+			console.log(linkList.printLinkList());
+
+			linkList.sortLinkList();
+			console.log(linkList.printLinkList());
+
+			console.log(linkList.getMiddleNode());
+
+		</script>
+
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

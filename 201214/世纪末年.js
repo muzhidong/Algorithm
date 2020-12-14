@@ -53,12 +53,16 @@ function getTheEndOfCentury(endDay,startDay = 'friday',recursionNum = 0) {
 	if(realRemain === remain){
 		return (20 + recursionNum) * 100 + 99;
 	}else{
-		// console.log(endDay,days[(idx + realRemain) % 7], recursionNum);
-		return getTheEndOfCentury(endDay,days[(idx + realRemain) % 7], ++recursionNum);
+		try {
+			// console.log(endDay,days[(idx + realRemain) % 7], recursionNum);
+			return getTheEndOfCentury(endDay,days[(idx + realRemain) % 7], ++recursionNum);
+		} catch (error) {
+			console.error(error);
+			return -1;
+		}
 	}
-
 }
 console.time('getTheEndOfCentury');
 // 借此题说明，世纪末年最后一天不可能是星期一、星期三、星期六。
-console.log(getTheEndOfCentury('sunday'));
+console.log(getTheEndOfCentury('monday'));
 console.timeEnd('getTheEndOfCentury');

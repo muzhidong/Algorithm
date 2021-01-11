@@ -7,31 +7,31 @@
 //	11 - 3 
 //	10 - 2
 
-function grayCode(n){
+function grayCode(n) {
 
 	// n表示格雷码位数，必须为正整数
-	if(!new RegExp(/[0]*[1-9]\d*/g).test(n)) return;
+	if (!new RegExp(/[0]*[1-9]\d*/g).test(n)) return;
 
 	// 默认格雷码初始为1位
-	var result = ['0','1'];
-	for(var i = 2; i <= n; i++){
+	var result = ['0', '1'];
+	for (var i = 2; i <= n; i++) {
 		// 倒序遍历格雷码数组
-		for(var j= result.length-1; j>=0; j--){
+		for (var j = result.length - 1; j >= 0; j--) {
 			// 每遍历一位，在其前补一
 			result.push(`1${result[j]}`)
 		}
 		// 遍历完一次，补位
-		result = result.map(code=>code.padStart(i,'0'))
+		result = result.map(code => code.padStart(i, '0'))
 	}
 
 	return result;
-	
-}	
+
+}
 
 console.time('gray-code');
 var result = grayCode(3);
 var lines = result.length / 10;
-for(var i = 0; i < lines + 1; i++){
+for (var i = 0; i < lines + 1; i++) {
 	console.log(result.slice(i * 10, i * 10 + 10).join(','))
 }
 console.timeEnd('gray-code');

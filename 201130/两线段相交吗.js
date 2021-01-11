@@ -4,7 +4,7 @@
 
 // 不相交的两线段端点连接，一定存在是用两线段作为两边的四边形，而相交的两线段端点连接，则不存在。
 // FIXME:该算法不能处理大于平角的内角的四边形情况
-function isTwoLineSegmentIntersecting(ls1 = {a,b},ls2 = {c,d}){
+function isTwoLineSegmentIntersecting(ls1 = {a, b}, ls2 = {c, d}) {
 
 	// 线段1端点a
 	var ax = ls1.a[0];
@@ -20,7 +20,7 @@ function isTwoLineSegmentIntersecting(ls1 = {a,b},ls2 = {c,d}){
 	var dy = ls2.d[1];
 
 	// 计算夹角
-	function getAngel(sx,sy,ex,ey){
+	function getAngel(sx, sy, ex, ey) {
 
 		// 1.计算余弦值 = 数量积(两向量乘积和) / 向量a的模(模表示两点距离) / 向量b的模 
 		var np = sx * ex + sy * ey;
@@ -34,18 +34,18 @@ function isTwoLineSegmentIntersecting(ls1 = {a,b},ls2 = {c,d}){
 
 	// 只要有一种情况满足内角和为360，则判定两线段不相交
 	// 端点连接情况1
-	var a1 = getAngel(cx - ax,cy - ay,bx - ax,by - ay);
-	var a2 = getAngel(ax - cx,ay - cy,dx - cx,dy - cy);
-	var a3 = getAngel(ax - bx,ay - by,dx - bx,dy - by);
-	var a4 = getAngel(cx - dx,cy - dy,bx - dx,by - dy);
-	if(Math.round(a1 + a2 + a3 + a4) === 360) return false;
+	var a1 = getAngel(cx - ax, cy - ay, bx - ax, by - ay);
+	var a2 = getAngel(ax - cx, ay - cy, dx - cx, dy - cy);
+	var a3 = getAngel(ax - bx, ay - by, dx - bx, dy - by);
+	var a4 = getAngel(cx - dx, cy - dy, bx - dx, by - dy);
+	if (Math.round(a1 + a2 + a3 + a4) === 360) return false;
 
 	// 端点连接情况2
-	var a5 = getAngel(dx - ax,dy - ay,bx - ax,by - ay);
-	var a6 = getAngel(bx - cx,by - cy,dx - cx,dy - cy);
-	var a7 = getAngel(ax - bx,ay - by,cx - bx,cy - by);
-	var a8 = getAngel(cx - dx,cy - dy,ax - dx,ay - dy);
-	if(Math.round(a5 + a6 + a7 + a8) === 360) return false;
+	var a5 = getAngel(dx - ax, dy - ay, bx - ax, by - ay);
+	var a6 = getAngel(bx - cx, by - cy, dx - cx, dy - cy);
+	var a7 = getAngel(ax - bx, ay - by, cx - bx, cy - by);
+	var a8 = getAngel(cx - dx, cy - dy, ax - dx, ay - dy);
+	if (Math.round(a5 + a6 + a7 + a8) === 360) return false;
 
 	return true;
 
@@ -53,7 +53,7 @@ function isTwoLineSegmentIntersecting(ls1 = {a,b},ls2 = {c,d}){
 
 // 解题思路源自：https://zhuanlan.zhihu.com/p/81599182
 // 先选择一条线段，验证另一条线段的两个点不在这条线段的同一侧。然后选择另一条线段，用同样的方法进行验证。
-function isTwoLineSegmentIntersecting2(ls1 = {a,b},ls2 = {c,d}){
+function isTwoLineSegmentIntersecting2(ls1 = {a, b}, ls2 = {c, d}) {
 
 	// 线段1端点a
 	var ax = ls1.a[0];
@@ -69,7 +69,7 @@ function isTwoLineSegmentIntersecting2(ls1 = {a,b},ls2 = {c,d}){
 	var dy = ls2.d[1];
 
 	// 向量叉乘
-	function crossMul(x1,y1,x2,y2){
+	function crossMul(x1, y1, x2, y2) {
 		return x1 * y2 - x2 * y1;
 	}
 
@@ -78,19 +78,19 @@ function isTwoLineSegmentIntersecting2(ls1 = {a,b},ls2 = {c,d}){
 	var v1 = crossMul(ax - cx, ay - cy, dx - cx, dy - cy);
 	// cb x cd
 	var v2 = crossMul(bx - cx, by - cy, dx - cx, dy - cy);
-	
+
 	// ac x ab
 	var v3 = crossMul(cx - ax, cy - ay, bx - ax, by - ay);
 	// ad x ab
 	var v4 = crossMul(dx - ax, dy - ay, bx - ax, by - ay);
 
-	return v1 * v2 <= 0 && v3 * v4 <=0;
+	return v1 * v2 <= 0 && v3 * v4 <= 0;
 }
 
-var a = [0,0];
-var b = [1,1];
-var c = [2,1];
-var d = [3,0];
+var a = [0, 0];
+var b = [1, 1];
+var c = [2, 1];
+var d = [3, 0];
 
 console.time('isTwoLineSegmentIntersecting');
 console.log(`两线段{(${a.join(',')}),(${b.join(',')})},{(${c.join(',')}),(${d.join(',')})}${isTwoLineSegmentIntersecting({a,b},{c,d})?'':'不'}相交`);

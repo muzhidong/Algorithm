@@ -1,13 +1,13 @@
 # algorithm
-- 201108 数据结构 - 单链表
-- 201112 蛇形矩阵
-- 201116 数组 - 获取数组中两元素之和等于给定值的对应索引
-- 201130 数学问题 - 线段相交
-- 201214 世纪末年
-- 201216 格雷码
-- 201217 数学问题 - 姐妹年龄
-- 201222 进制转换
-- 210105 数学问题 - 大数相乘
-- 210109 数学问题 - 组数
-- 210110 数学问题 - 最小质因数
-- 210111 红包
+- [201108 数据结构 - 单链表](https://github.com/muzhidong/algorithm/tree/main/201108)
+- [201112 蛇形矩阵](https://github.com/muzhidong/algorithm/tree/main/201112)
+- [201116 数组 - 获取数组中两元素之和等于给定值的对应索引](https://github.com/muzhidong/algorithm/tree/main/201116)
+- [201130 数学问题 - 线段相交](https://github.com/muzhidong/algorithm/tree/main/201130)
+- [201214 世纪末年](https://github.com/muzhidong/algorithm/tree/main/201214)
+- [201216 格雷码](https://github.com/muzhidong/algorithm/tree/main/201216)
+- [201217 数学问题 - 姐妹年龄](https://github.com/muzhidong/algorithm/tree/main/201217)
+- [201222 进制转换](https://github.com/muzhidong/algorithm/tree/main/201222)
+- [210105 数学问题 - 大数相乘](https://github.com/muzhidong/algorithm/tree/main/210105)
+- [210109 数学问题 - 组数](https://github.com/muzhidong/algorithm/tree/main/210109)
+- [210110 数学问题 - 最小质因数](https://github.com/muzhidong/algorithm/tree/main/210110)
+- [210111 红包](https://github.com/muzhidong/algorithm/tree/main/210111)

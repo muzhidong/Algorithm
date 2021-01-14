@@ -21,7 +21,8 @@ function hexadecimalConversion(value, hex, currentHex = 10) {
 		value += '';
 		for (var i = 0, len = value.length; i < len; i++) {
 
-			newVal += str.indexOf(value.charAt(i)) * Math.pow(currentHex, len - 1 - i);
+			// newVal += str.indexOf(value.charAt(i)) * Math.pow(currentHex, len - 1 - i);
+			newVal = str.indexOf(value.charAt(i)) + currentHex * newVal;
 		}
 	} else {
 		newVal = value;
